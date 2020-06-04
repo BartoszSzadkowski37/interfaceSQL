@@ -1,5 +1,7 @@
 # THIS PROGRAM EXISTS FOR PRACTICE SQL QUERIES
 
+# Use regex to find out if query is select, if is print output
+
 import sqlite3
 import pyinputplus as pyip
 
@@ -14,4 +16,4 @@ mainLoop = True
 
 while mainLoop:
 
-    query = pyip
+
