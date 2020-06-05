@@ -3,6 +3,9 @@
 # IMPORTING MODULES
 from os import system, name
 import pyinputplus as pyip
+from pathlib import Path
+import sqlite3
+import re
 
 # FUNCTION FOR CLEARING THE SCREEN
 def clear():
@@ -21,4 +24,39 @@ def menu():
     print('3. EXIT')
     userInput = pyip.inputChoice(['1', '2', '3'], '(1/2/3):')
     return userInput
+
+# CREATING DATABASE
+def createDB():
+    # clear the screen
+    clear()
+    print('CREATING DATABASE')
+    print('1. CREATE FROM DB STUDIO LEVEL')
+    print('2. CREATE MANUALLY BY SQL')
+    print('3. EXIT')
+    userInput = pyip.inputChoice(['1', '2', '3'], '(1/2/3):')
+    # CREATING DB FROM THE DB STUDIO LEVEL
+    if userInput == '3':
+        return
+    elif userInput == '1':
+        ifExists = True
+        # getting db name and checking if such DB exists
+        while ifExists:
+            DBName = pyip.inputStr('Provide name of the DataBase:')
+            DBName = DBName + '.db'
+            path = Path.cwd() / DBName
+            if path.exists():
+                print('There is DB with this name already!')
+            else:
+                ifExists = False
+    else:
+        query = pyip.inputStr('Provide SQL query:', allowRegexes=(r'CREATE DATABASE (/w)+;'), blockRegexes=(r'.*'))
+        DBName = re.sub('CREATE DATABASE ', '', query)
+        DBName = re.sub(';', '', DBName)
+        DBName = DBName + '.db'
+    con = sqlite3.connect(DBName)
+
+
+    
+
+
 

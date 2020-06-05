@@ -10,10 +10,11 @@ import functions as func
 loop = True
 
 while loop:
+   func.clear()
    action = func.menu() 
    if action == '1':
        func.clear()
-       print('create')
+       func.createDB()
    elif action == '2':
        func.clear()
        print('show')

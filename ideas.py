@@ -21,17 +21,8 @@
 # DATABASE (NAME) MANAGEMENT
 # to be continued ...§# show list of DBs
 
-# Provide name of DB to manage or pass 'q' to exit
 
 
-# DATABASE (NAME) MANAGEMENT
-# to be continued ...§# show list of DBs
-
-# Provide name of DB to manage or pass 'q' to exit
-
-
-# DATABASE (NAME) MANAGEMENT
-# to be continued ...§
 
 
 
