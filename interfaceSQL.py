@@ -1,19 +1,25 @@
-# THIS PROGRAM EXISTS FOR PRACTICE SQL QUERIES
 
-# Use regex to find out if query is select, if is print output
-
+# IMPORTING MODULES
 import sqlite3
 import pyinputplus as pyip
+import functions as func
 
 
-con = sqlite3.connect('practice.db')
 
-con.row_factory = sqlite3.Row
+# MAIN LOOP
+loop = True
 
-cur = con.cursor()
+while loop:
+   action = func.menu() 
+   if action == '1':
+       func.clear()
+       print('create')
+   elif action == '2':
+       func.clear()
+       print('show')
+   elif action == '3':
+       func.clear()
+       loop = False
 
-mainLoop = True
-
-while mainLoop:
 
 
