@@ -13,7 +13,6 @@
 
 # SHOW DATABASES
 # show list of DBs
-# IDEA FOR CHECK EXIST DBS
 Python 3.7.3 (default, Dec 13 2019, 19:58:14) 
 [Clang 11.0.0 (clang-1100.0.33.17)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
@@ -45,6 +44,15 @@ TypeError: expected string or bytes-like object
 >>> dataBaseCheckReg.findall(dbs)
 ["['functions.py', 'interfaceSQL.py', '.DataBase.py.swp', '.ideas.py.swo', '__pycache__', 'baza.db.db"]
 
+# IDEA FOR WORKING CHECKING FINDALL DOESNT WORK I DONT KNOW WHY....
+>>> for i in range(len(ls)):
+...     find = dataBaseCheckReg.search(ls[i])
+...     if find != None:
+...             print(find.group())
+... 
+SiemensEmployees.db
+AtosEmployees.db
+>>> 
 
 # Provide name of DB to manage or pass 'q' to exit
 
