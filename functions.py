@@ -6,6 +6,7 @@ import pyinputplus as pyip
 from pathlib import Path
 import sqlite3
 import re
+import os
 
 # FUNCTION FOR CLEARING THE SCREEN
 def clear():
@@ -49,14 +50,24 @@ def createDB():
             else:
                 ifExists = False
     else:
-        query = pyip.inputStr('Provide SQL query:', allowRegexes=(r'CREATE DATABASE (/w)+;'), blockRegexes=(r'.*'))
+        query = pyip.inputStr('Provide SQL query:', allowRegexes=(r'CREATE DATABASE (/w)+;'), blockRegexes=(r'.*'), limit=3)
         DBName = re.sub('CREATE DATABASE ', '', query)
         DBName = re.sub(';', '', DBName)
         DBName = DBName + '.db'
     con = sqlite3.connect(DBName)
 
 
-    
-
+# LIST ALL DATABASES EXISTING
+def listDBs():
+    cwd = str(Path.cwd())
+    ls = os.listdir(cwd)
+    checkDBReg = re.compile(r'.*\.db')
+    existingDB = []
+    for i in range(len(ls)):
+        match = checkDBReg.search(ls[i])
+        if match != None:
+            existingDB.append(match.group())
+    print('Found DataBases:')
+    print(existingDB)
 
 

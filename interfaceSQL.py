@@ -10,14 +10,14 @@ import functions as func
 loop = True
 
 while loop:
-   func.clear()
+   #func.clear()
    action = func.menu() 
    if action == '1':
        func.clear()
        func.createDB()
    elif action == '2':
        func.clear()
-       print('show')
+       func.listDBs()
    elif action == '3':
        func.clear()
        loop = False
