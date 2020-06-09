@@ -57,7 +57,7 @@ def createDB():
     con = sqlite3.connect(DBName)
 
 
-# LIST ALL DATABASES EXISTING
+# LIST ALL DATABASES EXISTING IF USER WANT TO MANAGE SOME DB, FUNCTION WILL RETURN THIS DB NAME, ELSE WILL RETURN NONE
 def listDBs():
     cwd = str(Path.cwd())
     ls = os.listdir(cwd)
@@ -69,5 +69,17 @@ def listDBs():
             existingDB.append(match.group())
     print('Found DataBases:')
     print(existingDB)
+    
+    print('Provide DataBase name for manage or press "q" to exit')
+    
+    correctNameOfDB = False
+    while correctNameOfDB == False:
+        userInput = pyip.inputStr(prompt='Provide valid DB name:')
+        if userInput == 'q':
+            return
+        for i in range(len(existingDB)):
+            if existingDB[i] == userInput:
+                correctNameOfDB = True
+    return userInput
 
 
