@@ -17,8 +17,8 @@ while loop:
        func.createDB()
    elif action == '2':
        func.clear()
-       listRet = func.listDBs()
-       print(listRet)
+       dbName = func.listDBs()
+       func.manageDB(dbName)
    elif action == '3':
        func.clear()
        loop = False

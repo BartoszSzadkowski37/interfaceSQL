@@ -82,4 +82,16 @@ def listDBs():
                 correctNameOfDB = True
     return userInput
 
+# PRINT MENU IN MANAGE DB
+def printManageMenu():
+    print('1. CREATE TABLE')
+    print('2. LIST TABLES')
+    
 
+# MANAGE DB
+def manageDB(dbName):
+    print('You manage: ' + dbName + ' database')
+    printManageMenu()
+
+# CREATE TABLE FUNCTION
+def createTable():
